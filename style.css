@@ -1,0 +1,428 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: capitalize;
+  list-style: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+}
+
+:root{
+  --btn-bg: rgb(4, 164, 244);
+  --bg: #eee;
+}
+
+body{
+  font-family: "Poppins", Sans-Serif;
+  background: var(--bg);
+  width: 100%;
+  height: 100vh;
+}
+
+a,img,button,.btn{
+  user-select: none;
+}
+
+button{
+  cursor: pointer;
+}
+
+header{
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: url('images/bible-study.jpg')no-repeat center center/cover;
+  transition: 1s linear;
+  z-index: 2;
+}
+
+header::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(0deg, rgb(16,17,17), transparent);
+  z-index: -1;
+}
+
+header::after{
+  content: '';
+  position: absolute;
+  width: 20%;
+  height: 93%;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, rgb(16,17,17), transparent);
+  z-index: -1;
+}
+
+header nav{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 6%;
+  transition: 1s linear;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  z-index: 9999999999;
+}
+
+header nav.sticky{
+  background: #222;
+}
+
+header nav .logo{
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 100%;
+  transition: 1s linear;
+}
+
+header nav .logo i{
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  transition: .3s linear;
+  border-radius: 4px;
+  margin-left: 3px;
+  display: none;
+}
+
+header nav .logo i:hover{
+  color: #fff;
+  background: var(--btn-bg);
+  transition: .3s linear;
+}
+
+header nav .logo .title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 17px;
+  margin-left: 10px;
+  transition: .5s linear;
+}
+
+header nav .logo .title img{
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+  object-fit: cover;
+  object-position: center;
+  color: #000;
+  font-size: 15px;
+}
+
+header nav .logo .title span{
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-weight: 600;
+  background: var(--btn-bg);
+  transition: .5s linear;
+}
+
+header nav .links{
+  display: flex;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+  transition: .5s linear;
+}
+
+header nav .links button{
+  background: transparent;
+  font-size: 16px;
+  color: #fff;
+  position: relative;
+}
+
+header nav .links button i{
+  font-size: 20px;
+  vertical-align: -0.1rem;
+  transition: .3s linear;
+}
+
+header nav .links button:hover i{
+  transform: rotate(180deg);
+  transition: .3s linear;
+}
+
+header nav .links .link{
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 6px;
+  transition: .3s linear;
+}
+
+header nav .links .link i{
+  margin-right: 5px;
+  font-size: 23px;
+}
+
+header nav .links .link:hover{
+  background: var(--btn-bg);
+}
+
+header nav .links button .subLink{
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  top: 45px;
+  left: 0;
+  width: 300px;
+  min-width: 100px;
+  background: var(--btn-bg);
+  border-radius: 10px;
+  transition: .3s linear;
+  z-index: 9999999999;
+}
+
+header nav .links button:hover .subLink{
+  display: flex;
+  transition: .3s linear;
+}
+
+header nav .links button .subLink .link{
+  padding: 10px;
+}
+
+header nav .links button .subLink .link i{
+  position: absolute;
+  right: 10px;
+  transform: rotate(0deg);
+}
+
+header nav .links button .subLink .link:hover{
+  background: #fff;
+  color: var(--btn-bg);
+}
+
+header nav .links form{
+  display: flex;
+  align-items: center;
+  transition: 1s linear;
+}
+
+header nav .links form .inputBox{
+  width: 0px;
+  height: 30px;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  backdrop-filter: blur(30px);
+  border: 1px solid #999;
+  transition: .5s linear;
+}
+
+header nav .links form .inputBox.active{
+  width: 200px;
+  opacity: 1;
+  visibility: visible;
+}
+
+header nav .links form .inputBox input{
+  width: 100%;
+  height: 100%;
+  padding: 0px 5px;
+  border-radius: 10px 0px 0px 10px;
+  background: transparent;
+  color: #fff;
+}
+
+header nav .links form .inputBox input::placeholder{
+  color: #bbb;
+}
+
+header nav .links form .inputBox button{
+  font-size: 18px;
+  padding: 0px 8px 0px 5px;
+  transition: .3s linear;
+}
+
+header nav .links form .inputBox button:hover{
+  color: var(--btn-bg);
+}
+
+header nav .links form i#searchBtn{
+  margin-left: 10px;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: .3s linear;
+}
+
+header nav .links form i#searchBtn:hover{
+  color: var(--btn-bg);
+}
+
+header .content{
+  position: absolute;
+  top: 30%;
+  left: 6%;
+  transition: 1s linear;
+}
+
+header .content h1{
+  color: var(--btn-bg);
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  transition: .5s linear;
+}
+
+header .content p{
+  padding: 5px;
+  width: 560px;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  transition: .5s linear;
+}
+
+header .content button{
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 10px;
+  background: rgb(4, 164, 244);
+  color: #fff;
+  transition: .3s linear;
+}
+
+header .content button i{
+  font-size: 30px;
+}
+
+header .content button:hover{
+  background: #000;
+  backdrop-filter: ;
+}
+
+header .slider_btns{
+  position: absolute;
+  bottom: 10px;
+  left: 45%;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s linear;
+}
+
+header .slider_btns .slider_btn{
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  border-radius: 20px;
+  margin: 0px 5px;
+  transition: .5s linear;
+}
+
+header .slider_btns .slider_btn:nth-child(1){
+  background: var(--btn-bg);
+}
+
+main{
+  width: 100%;
+  height: auto;
+  border: 1px solid ;
+}
+
+main .head{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px 10px 0px;
+}
+
+main .head h1{
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+main .head h4{
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--btn-bg);
+}
+
+main .content{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid;
+}
+
+main .content .leftContent{
+  width: 50%;
+  height: auto;
+  padding: 0px 5px 0px 5px;
+  border: 1px solid;
+}
+
+main .content .leftContent .head{
+  font-size: 20px;
+}
+
+main .content .leftContent p{
+  padding: 0px 5px 10px 5px;
+  line-height: 1.5;
+}
+
+main .content .leftContent .subHead{
+  padding: 10px 0px 8px 5px;
+  font-size: 17px;
+}
+
+main .content .leftContent .topic{
+  font-size: 18px;
+  padding: 0px 0px 10px 0px;
+  font-weight: 600;
+}
+
+main .content .leftContent .subTopic{
+  padding: 0px 0px 0px 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+main .content .leftContent .littleTopic{
+  font-size: 17px;
+  padding: 10px 0px 7px 30px;
+}
+
+main .content .leftContent p.para{
+  padding-left: 40px;
+}
+
+main .content .rightContent{
+  width: 50%;
+  height: auto;
+  border: 1px solid;
+}
